@@ -1,7 +1,16 @@
-# EnTest
-Ensuite tests for your app
-
 [![](https://jitpack.io/v/guidovezzoni/entest.svg)](https://jitpack.io/#guidovezzoni/entest)
+
+# EnTest
+Embedded tests for your app.
+
+The purpose of this little library is to provide a simple way to handle tests in your app, possibly in a user-facing context - for example if your app needs to run test against a specific hardware or platform or context.
+
+Currently it only provides a basic way to execute tests and collect their results in a unit test style, matching expected and actual value.
+
+In future I'd like to implement - at least - these feature:
+- general tests with result collection - rather than expected vs actual value
+- multithreading
+- UI to show the progress
 
 # Usage
 Add the JitPack repository in your root build.gradle at the end of repositories:
