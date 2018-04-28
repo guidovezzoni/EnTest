@@ -12,28 +12,21 @@ import android.widget.Toast;
 import com.guidovezzoni.entest.InAppTest;
 import com.guidovezzoni.entest.model.TestSummary;
 
+@SuppressWarnings("squid:MaximumInheritanceDepth")
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(this::runTests);
-        /*
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
     }
 
+    @SuppressWarnings("unused")
     private void runTests(View view) {
         InAppTest inAppTest = new InAppTest();
 

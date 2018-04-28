@@ -7,25 +7,25 @@ import com.guidovezzoni.entest.interfaces.TestFunction;
 /**
  * Created by guido on 30/09/17.
  */
-public class TestData<EXP> {
-    private final TestFunction<EXP, Boolean> testFunction;
-    private final EXP expected;
+public class TestData<E> {
+    private final TestFunction<E, Boolean> testFunction;
+    private final E expected;
     private TestStatus result = TestStatus.NOT_RUN;
 
-    public static <E> TestData<E> create(TestFunction<E, Boolean> testFunction, E expected) {
+    public static <T> TestData<T> create(TestFunction<T, Boolean> testFunction, T expected) {
         return new TestData<>(testFunction, expected);
     }
 
-    private TestData(TestFunction<EXP, Boolean> testFunction, EXP expected) {
+    private TestData(TestFunction<E, Boolean> testFunction, E expected) {
         this.testFunction = testFunction;
         this.expected = expected;
     }
 
-    public TestFunction<EXP, Boolean> getTestFunction() {
+    public TestFunction<E, Boolean> getTestFunction() {
         return testFunction;
     }
 
-    public EXP getExpected() {
+    public E getExpected() {
         return expected;
     }
 

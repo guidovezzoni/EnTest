@@ -1,6 +1,8 @@
 package com.guidovezzoni.entest;
 
 
+import android.util.Log;
+
 import com.guidovezzoni.entest.enums.TestStatus;
 import com.guidovezzoni.entest.interfaces.TestFunction;
 import com.guidovezzoni.entest.model.TestData;
@@ -13,9 +15,11 @@ import java.util.List;
  * Created by guido on 30/09/17.
  */
 public class InAppTest {
+    private static final String TAG = InAppTest.class.getSimpleName();
     private List<TestData> testList = new ArrayList<>();
 
-    private <EXP> TestStatus testFeature(TestFunction<EXP, Boolean> testFunction, EXP expected) {
+    @SuppressWarnings("squid:S1135")
+    private <E> TestStatus testFeature(TestFunction<E, Boolean> testFunction, E expected) {
         try {
             return testFunction.call(expected) ? TestStatus.SUCCESS : TestStatus.FAILED;
         } catch (Exception e) {
@@ -54,6 +58,8 @@ public class InAppTest {
                 case EXCEPTION:
                     exception++;
                     break;
+                default:
+                    Log.e(TAG, "Unknown TestStatus value");
             }
         }
 
